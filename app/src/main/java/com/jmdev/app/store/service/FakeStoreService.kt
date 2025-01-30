@@ -1,20 +1,18 @@
 package com.jmdev.app.store.service
 
 import com.jmdev.app.store.model.Product
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface FakeStoreService {
 
-    @GET("products?limit=10")
-    suspend fun getProducts(): List<Product>
+    @GET("products")
+    suspend fun getProducts(): Response<List<Product>>
 
     @GET("products/categories")
-    suspend fun getCategories(): List<String>
-
-    @GET("products/category/{category}")
-    suspend fun getProductsByCategory(@Path("category") category: String): List<Product>
+    suspend fun getCategories(): Response<List<String>>
 
     @GET("products/{id}")
-    suspend fun getProductById(@Path("id") id: Int): Product
+    suspend fun getProductById(@Path("id") id: Int): Response<Product>
 }

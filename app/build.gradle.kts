@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt.android)
+    kotlin("plugin.serialization") version "2.1.10"
     id("kotlin-kapt")
 }
 
@@ -67,10 +68,13 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
     implementation(libs.coil.image)
+    implementation(libs.coil.network)
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.kotlinx.serialization.json)
     implementation(project(":utilities"))
 }
 
